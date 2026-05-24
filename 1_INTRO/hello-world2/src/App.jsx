@@ -1,11 +1,20 @@
-import './App.css'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Ola from '../src/pages/ola'
+import Contador from '../src/pages/contador'
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Ola />,
+  },
+  {
+    path: "/contador",
+    element: <Contador />
+  }
+]);
 
 function App() {
-  return (
-    <>
-      <h1>Ola mundo</h1>
-    </>
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;
