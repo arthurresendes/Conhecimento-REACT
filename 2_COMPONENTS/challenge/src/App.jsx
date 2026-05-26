@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Contador from '../src/components/contador'
 import JuntarNome from '../src/components/nome'
+import  PromocaoLoja from '../src/components/promocao'
 
 const router = createBrowserRouter([
   {
@@ -10,6 +11,10 @@ const router = createBrowserRouter([
   {
     path: "/name",
     element: <JuntarNome />
+  },
+  {
+    path: "/promocao",
+    element: <PromocaoLoja />
   }
 ]);
 
