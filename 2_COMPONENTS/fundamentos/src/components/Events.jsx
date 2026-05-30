@@ -1,4 +1,7 @@
+import { useState } from "react";
+
 const Events = () =>{
+    const [texto, setTexto] = useState('')
     const handleMyEvent = (e) => {
         console.log(e)
         console.log("Ativou o evento")
@@ -13,7 +16,11 @@ const Events = () =>{
     }
 
     const renderHello = () => {
-            return <h1> Ola mundo </h1>
+            if(texto == "Ola mundo"){
+                setTexto('')
+            }else{
+                setTexto("Ola mundo")
+            }
     }
     return(
         <div>
@@ -29,7 +36,9 @@ const Events = () =>{
             {renderSomething(false)}
 
             <div>
-                {renderHello()}
+                <button onClick={renderHello}>Clique aqui para sumir e aparecer</button>
+                <br></br>
+                {texto}
             </div>
         </div>
     )
