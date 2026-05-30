@@ -1,4 +1,5 @@
 import './App.css'
+import Events from './components/Events'
 import FirstComponent from "./components/FirstComponents"
 //import TemplateExpressions from './components/TemplateExpression'
 
@@ -8,6 +9,7 @@ function App() {
       <h1>Fundamentos React</h1>
       <FirstComponent/>
       {/*<TemplateExpressions/>*/}
+      <Events />
     </div>
   )
 }
