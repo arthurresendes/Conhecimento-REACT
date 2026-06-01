@@ -1,6 +1,7 @@
 import './App.css'
 import Events from './components/Events'
 import FirstComponent from "./components/FirstComponents"
+import Portfolio from './components/Portfolio'
 //import TemplateExpressions from './components/TemplateExpression'
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <FirstComponent/>
       {/*<TemplateExpressions/>*/}
       <Events />
+      <Portfolio/>
     </div>
   )
 }
