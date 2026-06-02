@@ -2,6 +2,7 @@ import './App.css'
 import Invencible from './assets/invencivel2.jpg'
 import ManageData from './components/ManageData'
 import ListRender from './components/ListRender'
+import ConditionalRandom from './components/ConditionalRandom'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       </div>
       <ManageData/>
       <ListRender/>
+      <ConditionalRandom/>
     </>
   )
 }
