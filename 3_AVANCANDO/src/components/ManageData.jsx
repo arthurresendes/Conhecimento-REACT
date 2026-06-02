@@ -6,7 +6,7 @@ const ManageData = () => {
     const [soma, setSoma] = useState(someData)
 
     const somando = () => {
-        const res = soma + 10
+        let res = soma + 10
         setSoma(res)
     }
     return (
