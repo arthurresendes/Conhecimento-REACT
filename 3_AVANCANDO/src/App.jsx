@@ -1,6 +1,7 @@
 import './App.css'
 import Invencible from './assets/invencivel2.jpg'
 import ManageData from './components/ManageData'
+import ListRender from './components/ListRender'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <img src={Invencible} alt="" style={{width: "300px"}}/>
       </div>
       <ManageData/>
+      <ListRender/>
     </>
   )
 }
