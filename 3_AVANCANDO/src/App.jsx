@@ -1,5 +1,6 @@
 import './App.css'
 import Invencible from './assets/invencivel2.jpg'
+import ManageData from './components/ManageData'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <div>
         <img src={Invencible} alt="" style={{width: "300px"}}/>
       </div>
+      <ManageData/>
     </>
   )
 }
