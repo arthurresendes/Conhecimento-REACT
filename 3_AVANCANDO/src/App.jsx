@@ -7,6 +7,11 @@ import ShowUserName from './components/ShowUserName'
 import CarDetails from './components/CarDetails'
 
 function App() {
+  const cars = [
+    {id: 1, brand: "Ferrari", color: "azul", novo: true, km: 0},
+    {id: 2, brand: "Ferrari", color: "vermelho", novo: false, km: 10000},
+    {id: 3, brand: "Ferrari", color: "verde", novo: true, km: 0},
+  ]
   return (
     <>
       <h1>Avançando em react</h1>
@@ -20,9 +25,12 @@ function App() {
       <ListRender/>
       <ConditionalRandom/>
       <ShowUserName name="Arthur"/>{/*Pode passar tanto constantes sem e com useState como parametros nesse caso tambem*/}
-      <CarDetails brand="VW" km={10000} color="azul" novo={true}/>
+      <CarDetails brand="VW" km={0} color="azul" novo={true}/>
       <CarDetails brand="VW" km={10000} color="azul" novo={false}/>
-      <CarDetails brand="VW" km={10000} color="vermelho" novo={true}/>
+      <CarDetails brand="VW" km={0} color="vermelho" novo={true}/>
+      {cars.map((car) =>(
+        <CarDetails brand={car.brand} km={car.km} color={car.color} novo={car.novo}/>
+      ))}
     </>
   )
 }
