@@ -6,6 +6,7 @@ import ConditionalRandom from './components/ConditionalRandom'
 import ShowUserName from './components/ShowUserName'
 import CarDetails from './components/CarDetails'
 import Container from './components/Container'
+import ExecuteFunction from './components/ExecuteFunction'
 
 function App() {
   const cars = [
@@ -13,6 +14,11 @@ function App() {
     {id: 2, brand: "Ferrari", color: "vermelho", novo: false, km: 10000},
     {id: 3, brand: "Ferrari", color: "verde", novo: true, km: 0},
   ]
+
+  function showMessage(){
+    console.log("Minha função")
+  }
+
   return (
     <>
       <h1>Avançando em react</h1>
@@ -30,11 +36,12 @@ function App() {
       <CarDetails brand="VW" km={10000} color="azul" novo={false}/>
       <CarDetails brand="VW" km={0} color="vermelho" novo={true}/>
       {cars.map((car) =>(
-        <CarDetails brand={car.brand} km={car.km} color={car.color} novo={car.novo}/>
+        <CarDetails key={car.id} brand={car.brand} km={car.km} color={car.color} novo={car.novo}/>
       ))}
       <Container myValue="teste">
         <p>Componente filho</p>
       </Container>
+      <ExecuteFunction myFunction={showMessage}/>
     </>
   )
 }
