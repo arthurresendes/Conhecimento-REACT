@@ -5,6 +5,7 @@ import ListRender from './components/ListRender'
 import ConditionalRandom from './components/ConditionalRandom'
 import ShowUserName from './components/ShowUserName'
 import CarDetails from './components/CarDetails'
+import Container from './components/Container'
 
 function App() {
   const cars = [
@@ -31,6 +32,9 @@ function App() {
       {cars.map((car) =>(
         <CarDetails brand={car.brand} km={car.km} color={car.color} novo={car.novo}/>
       ))}
+      <Container myValue="teste">
+        <p>Componente filho</p>
+      </Container>
     </>
   )
 }
