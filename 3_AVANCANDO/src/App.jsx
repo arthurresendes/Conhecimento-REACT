@@ -4,6 +4,7 @@ import ManageData from './components/ManageData'
 import ListRender from './components/ListRender'
 import ConditionalRandom from './components/ConditionalRandom'
 import ShowUserName from './components/ShowUserName'
+import CarDetails from './components/CarDetails'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <ListRender/>
       <ConditionalRandom/>
       <ShowUserName name="Arthur"/>{/*Pode passar tanto constantes sem e com useState como parametros nesse caso tambem*/}
+      <CarDetails brand="VW" km={10000} color="azul"/>
     </>
   )
 }
