@@ -3,6 +3,7 @@ import Invencible from './assets/invencivel2.jpg'
 import ManageData from './components/ManageData'
 import ListRender from './components/ListRender'
 import ConditionalRandom from './components/ConditionalRandom'
+import ShowUserName from './components/ShowUserName'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <ManageData/>
       <ListRender/>
       <ConditionalRandom/>
+      <ShowUserName name="Arthur"/>{/*Pode passar tanto constantes sem e com useState como parametros nesse caso tambem*/}
     </>
   )
 }
