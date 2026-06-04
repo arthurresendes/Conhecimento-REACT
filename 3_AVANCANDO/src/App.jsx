@@ -10,12 +10,19 @@ import ExecuteFunction from './components/ExecuteFunction'
 import { useState } from 'react'
 import Message from './components/Message'
 import ChangeMessagState from './components/ChangeMessagState'
+import UserDetails from './components/UserDetails'
 
 function App() {
   const cars = [
     {id: 1, brand: "Ferrari", color: "azul", novo: true, km: 0},
     {id: 2, brand: "Ferrari", color: "vermelho", novo: false, km: 10000},
     {id: 3, brand: "Ferrari", color: "verde", novo: true, km: 0},
+  ]
+
+  const persons = [
+    {id: 1, name: "Arthur", age: 19, work: "Developer"},
+    {id: 2, name: "Matheus", age: 20, work: "Infra"},
+    {id: 3, name: "Arthur", age: 17, work: "Atendente"},
   ]
 
   function showMessage(){
@@ -53,6 +60,9 @@ function App() {
       <ExecuteFunction myFunction={showMessage}/>
       <Message msg={message}/>
       <ChangeMessagState handleMessage={handleMessageIntern}/>
+      {persons.map((person) => (
+        <UserDetails key={person.id} name={person.name} age={person.age} work={person.work}/>
+      ))}
     </>
   )
 }
