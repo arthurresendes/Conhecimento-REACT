@@ -7,6 +7,9 @@ import ShowUserName from './components/ShowUserName'
 import CarDetails from './components/CarDetails'
 import Container from './components/Container'
 import ExecuteFunction from './components/ExecuteFunction'
+import { useState } from 'react'
+import Message from './components/Message'
+import ChangeMessagState from './components/ChangeMessagState'
 
 function App() {
   const cars = [
@@ -17,6 +20,12 @@ function App() {
 
   function showMessage(){
     console.log("Minha função")
+  }
+
+  const [message, setMessage] = useState("")
+
+  const handleMessageIntern = (msg) => {
+    setMessage(msg)
   }
 
   return (
@@ -42,6 +51,8 @@ function App() {
         <p>Componente filho</p>
       </Container>
       <ExecuteFunction myFunction={showMessage}/>
+      <Message msg={message}/>
+      <ChangeMessagState handleMessage={handleMessageIntern}/>
     </>
   )
 }
