@@ -18,3 +18,19 @@ Esse é um repositorio focado em conceitos **_REACT_** com **_Javascript_**
 ### Linkedin
 
 [**Linkedin**](https://www.linkedin.com/in/arthur-resende-gomes/)
+
+---
+
+> **Comandos para criar projeto**
+
+```sh
+npm create vite@latest
+```
+
+> **Comandos para rodar projeto**
+
+```sh
+npm install
+
+npm run dev
+```
