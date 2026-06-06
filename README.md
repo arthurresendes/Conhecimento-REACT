@@ -6,6 +6,14 @@ Esse é um repositorio focado em conceitos **_REACT_** com **_Javascript_**
 
 ---
 
+\*_Aprendizado_:\*
+
+- [x] useState
+- [x] Propos
+- [x] CSS especifico em REACT
+
+---
+
 ## Módulos
 
     1 - Hello World
