@@ -42,3 +42,10 @@ npm install
 
 npm run dev
 ```
+
+---
+
+| Linguages  | Descrição               |
+| ---------- | ----------------------- |
+| JavaScript | ES6                     |
+| TypeScript | Linguagem mais dinâmica |
