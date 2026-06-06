@@ -4,9 +4,11 @@ Esse é um repositorio focado em conceitos **_REACT_** com **_Javascript_**
 
 ![Logo do REACT](https://images.icon-icons.com/2699/PNG/512/reactjs_logo_icon_170805.png)
 
-[Aprendizado até o momento]()
+[Aprendizado até o momento](#aprendizado)
 [Módulos](#módulos)
-[Redes Sociais](#módulos)
+[Redes Sociais](#linkedin)
+[Comandos](#)
+[Linguagens](#)
 
 ---
 
@@ -33,6 +35,8 @@ Esse é um repositorio focado em conceitos **_REACT_** com **_Javascript_**
 
 ---
 
+## Comandos
+
 > **Comandos para criar projeto**
 
 ```sh
@@ -48,6 +52,8 @@ npm run dev
 ```
 
 ---
+
+## Linguagens
 
 | **Linguages** | **Descrição**           |
 | ------------- | ----------------------- |
