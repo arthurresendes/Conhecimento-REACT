@@ -1,0 +1,10 @@
+.my-comp-p{
+    color: blue;
+    text-transform: capitalize;
+}
+
+.my-comp-p:hover{
+    transition-duration: .3s;
+    font-size: 20px;
+    color: red;
+}
