@@ -2,13 +2,13 @@
 
 Esse é um repositorio focado em conceitos **_REACT_** com **_Javascript_**
 
-![Logo do REACT](https://images.icon-icons.com/2699/PNG/512/reactjs_logo_icon_170805.png)
+## Menu
 
-[Aprendizado até o momento](#aprendizado)
-[Módulos](#módulos)
-[Redes Sociais](#linkedin)
-[Comandos](#comandos)
-[Linguagens](#linguagens)
+- [Aprendizado até o momento](#aprendizado)
+- [Módulos](#módulos)
+- [Redes Sociais](#linkedin)
+- [Comandos](#comandos)
+- [Linguagens](#linguagens)
 
 ---
 
@@ -59,3 +59,5 @@ npm run dev
 | ------------- | ----------------------- |
 | JavaScript    | ES6                     |
 | TypeScript    | Linguagem mais dinâmica |
+
+![Logo do REACT](https://images.icon-icons.com/2699/PNG/512/reactjs_logo_icon_170805.png)
