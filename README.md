@@ -7,8 +7,8 @@ Esse é um repositorio focado em conceitos **_REACT_** com **_Javascript_**
 [Aprendizado até o momento](#aprendizado)
 [Módulos](#módulos)
 [Redes Sociais](#linkedin)
-[Comandos](#)
-[Linguagens](#)
+[Comandos](#comandos)
+[Linguagens](#linguagens)
 
 ---
 
