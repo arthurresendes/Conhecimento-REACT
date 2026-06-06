@@ -5,6 +5,7 @@ import MyComponent from './components/MyComponent'
 function App() {
   const n = 19
   const [name, setName] = useState("")
+  const redTitle = false;
   return (
     <>
       <h1>React com CSS</h1>
@@ -22,6 +23,9 @@ function App() {
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
         <p style={name === "Arthur" ? ({ color: 'blue' }) : ({ color: 'red' })}>Nome é: {name}</p>
       </div>
+
+      <hr />
+      <h2 className={redTitle ? 'red-title' : 'title'}>Titulo com classe dinamica</h2>
     </>
   )
 }
