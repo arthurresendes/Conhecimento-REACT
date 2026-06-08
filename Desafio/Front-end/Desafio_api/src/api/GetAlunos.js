@@ -2,7 +2,13 @@ const URL = "http://127.0.0.1:8000";
 
 export const obterAlunos = async () => {
   try {
-    const response = await fetch(`${URL}/ver_alunos`);
+    const response = await fetch(`${URL}/ver_alunos`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+        //Token entraria aqui
+      },
+    });
     localStorage.setItem("user", "Arthur");
 
     if (!response.ok) {

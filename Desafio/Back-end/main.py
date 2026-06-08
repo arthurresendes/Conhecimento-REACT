@@ -1,6 +1,7 @@
-from fastapi import FastAPI
+from fastapi import FastAPI,status
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
+from pydantic import BaseModel
 
 app = FastAPI()
 
@@ -23,6 +24,14 @@ app.add_middleware(
 def ver_alunos():
     return {"alunos": alunos}
 
+class Aluno(BaseModel):
+    id: int
+    name: str
+
+@app.post("/adicionar_aluno", status_code=status.HTTP_201_CREATED)
+def adicionar(aluno: Aluno):
+    alunos.append({"id": aluno.id, "name": aluno.name})
+    return {"aluno": aluno}
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
