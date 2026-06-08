@@ -55,9 +55,10 @@ npm run dev
 
 ## Linguagens
 
-| **Linguages** | **Descrição**           |
+| **Ferramenta** | **Descrição**           |
 | ------------- | ----------------------- |
 | JavaScript    | ES6                     |
 | TypeScript    | Linguagem mais dinâmica |
+| Git           | Uso desse repositorio para estudos GIT |
 
 ![Logo do REACT](https://images.icon-icons.com/2699/PNG/512/reactjs_logo_icon_170805.png)

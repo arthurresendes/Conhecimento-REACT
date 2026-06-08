@@ -18,7 +18,7 @@ export const obterAlunos = async () => {
     const dados = await response.json();
     return dados.alunos;
   } catch (erro) {
-    console.error("Erro no serviço", erro);
+    console.error("Erro no serviço, verifique o seguinte erro: ", erro);
     throw erro;
   }
 };
