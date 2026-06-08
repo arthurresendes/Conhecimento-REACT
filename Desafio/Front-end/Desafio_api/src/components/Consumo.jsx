@@ -23,6 +23,7 @@ const Consumo = () => {
 
     if (carregando) return <p>Carregando...</p>
     if (erro) return <p>Erro: {erro}</p>
+    const user = localStorage.getItem('user')
     return (
         <div>
             <h2>Alunos: </h2>
@@ -40,6 +41,7 @@ const Consumo = () => {
                     ))}
                 </tbody>
             </table>
+            {user === 'Arthur' ? 'Ola admin' : 'Ola usuario'}
         </div>
     )
 }
