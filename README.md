@@ -55,7 +55,7 @@ npm run dev
 
 ## Linguagens
 
-| **Linguages** | **Descrição**           |
+| **Ferramenta** | **Descrição**           |
 | ------------- | ----------------------- |
 | JavaScript    | ES6                     |
 | TypeScript    | Linguagem mais dinâmica |
