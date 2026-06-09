@@ -5,6 +5,7 @@ const MyForms = ({ user }) => {
     const [name, setName] = useState(user ? user.name : '')
     const [email, setEmail] = useState(user ? user.email : '')
     const [texto, setTexto] = useState("")
+    const [role, setRole] = useState(user ? user.role : '')
     const [enviou, setEnviou] = useState(false)
 
     const handleName = (e) => {
@@ -36,9 +37,17 @@ const MyForms = ({ user }) => {
                     <span>Bio:</span>
                     <textarea name="bio" placeholder='Descrição sua' onChange={(e) => setTexto(e.target.value)} value={texto}></textarea>
                 </label>
+                <label>
+                    <span>Opção do sistema</span>
+                    <select name="role" id="" onChange={(e) => setRole(e.target.value)} value={role}>
+                        <option value="user">Usuario</option>
+                        <option value="admin">Admin</option>
+                        <option value="ceo">CEO</option>
+                    </select>
+                </label>
                 <input type="submit" value="Enviar" />
             </form>
-            {enviou ? <p>Nome: {name} <br /> Email: {email} <br /> Biografia: {texto}</p> : ''}
+            {enviou ? <p>Nome: {name} <br /> Email: {email} <br /> Biografia: {texto} <br /> Tipo de visualização: {role}</p> : ''}
         </div>
     )
 }
