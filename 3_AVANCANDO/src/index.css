@@ -1,0 +1,20 @@
+.buttonImg{
+    border-radius: 15px;
+    background-color: white;
+    border: 1px solid black;
+    width: 30px;
+    height: 30px;
+    font-weight: bolder;
+    font-size: 15px;
+}
+
+.buttonImg:hover{
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    transition-duration: .3s;
+}
+
+img{
+    border-radius: 10px;
+}
