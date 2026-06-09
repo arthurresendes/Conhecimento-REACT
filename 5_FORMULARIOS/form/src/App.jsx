@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <h2 style={{ textAlign: 'center' }}>Froms</h2>
-      <MyForms />
+      <MyForms user={{ name: "Josias", email: "josias@gmail.com" }} />
     </>
   )
 }
