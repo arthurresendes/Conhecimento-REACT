@@ -1,8 +1,10 @@
+import StartScreen from "../components/StartScreen"
+
 
 function App() {
   return (
     <>
-      <h2 style={{ textAlign: 'center' }}>Secret Words</h2>
+      <StartScreen />
     </>
   )
 }
