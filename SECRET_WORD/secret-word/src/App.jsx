@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useState } from "react"
 import { wordsList } from './data/words'
 
+{/* Componentes */ }
 import StartScreen from "../components/StartScreen"
 import Game from "../components/Game"
 import GameOver from "../components/GameOver"
 
+{/* Estagios do jogo */ }
 const stages = [
   { id: 1, name: 'start' },
   { id: 2, name: 'game' },
@@ -18,10 +20,11 @@ function App() {
   const [pickedCategory, setPickedCategory] = useState('')
   const [letters, setLetters] = useState([])
 
+  {/* Pegar palavra e a categoria */ }
   const pickWordAndCategory = () => {
-    const categories = Object.keys(words)
-    const category = categories[Math.floor(Math.random() * Object.keys(categories).length)]
-    const word = words[category][Math.floor(Math.random() * words[category].length)]
+    const categories = Object.keys(words); {/* Pega todas as chaves */ }
+    const category = categories[Math.floor(Math.random() * Object.keys(categories).length)]; {/* Faz uma filtragem arredondada para pegar uma categoria */ }
+    const word = words[category][Math.floor(Math.random() * words[category].length)]; {/* Pega a palavra da categoria */ }
     return [word, category]
   }
 
@@ -30,6 +33,7 @@ function App() {
     let wordLetters = word.split("")
     wordLetters = wordLetters.map((l) => l.toLowerCase())
     console.log(wordLetters)
+
     setPickedWord(word)
     setPickedCategory(category)
     setLetters(letters)
