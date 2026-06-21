@@ -1,29 +1,16 @@
 import { useState, useRef } from "react";
-
-// styles
 import "./Game.css";
 
-const Game = ({
-    verifyLetter,
-    pickedCategory,
-    pickedWord,
-    letters,
-    guessedLetters,
-    wrongLetters,
-    guesses,
-    score,
-}) => {
-    const [letter, setLetter] = useState("");
-    const letterInputRef = useRef(null);
+const Game = ({ verifyLetter, pickedCategory, pickedWord, letters, guessedLetters, wrongLetters, guesses, score, }) => {
+    const [letter, setLetter] = useState(""); {/* Letras */ }
+    const letterInputRef = useRef(null); {/* Pegar input de referencia, deixando mais dinâmico pro user */ }
     console.log(pickedWord)
 
+    {/* Função para quando submeter o forms ele verifica a letra e depois limpa e deixa no foco do input para resposta */ }
     const handleSubmit = (e) => {
         e.preventDefault();
-
         verifyLetter(letter);
-
         setLetter("");
-
         letterInputRef.current.focus();
     };
 
@@ -38,6 +25,7 @@ const Game = ({
             </h3>
             <p>Você ainda tem {guesses} tentativa(s).</p>
             <div className="wordContainer">
+                {/* Se tiver letra mostra se não fica o quadrado branco */}
                 {letters.map((letter, i) =>
                     guessedLetters.includes(letter) ? (
                         <span className="letter" key={i}>
@@ -65,6 +53,7 @@ const Game = ({
             </div>
             <div className="wrongLettersContainer">
                 <p>Letras já utilizadas:</p>
+                {/* Mapea todas letras erradas */}
                 {wrongLetters.map((letter, i) => (
                     <span key={i}>{letter}, </span>
                 ))}

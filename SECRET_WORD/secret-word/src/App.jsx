@@ -1,16 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
-
-// components
 import StartScreen from "./components/StartScreen";
 import Game from "./components/Game";
 import GameOver from "./components/GameOver";
-
-// styles
 import "./App.css";
-
-// data
 import { wordsList } from "./data/words";
 
+{/* Fases do jogo */ }
 const stages = [
   { id: 1, name: "start" },
   { id: 2, name: "game" },
@@ -18,71 +13,53 @@ const stages = [
 ];
 
 function App() {
-  const [gameStage, setGameStage] = useState(stages[0].name);
-  const [words] = useState(wordsList);
+  const [gameStage, setGameStage] = useState(stages[0].name); {/* Fases do jogo */ }
+  const [words] = useState(wordsList); {/* Lista de palavras/categorias */ }
 
-  const [pickedWord, setPickedWord] = useState("");
-  const [pickedCategory, setPickedCategory] = useState("");
-  const [letters, setLetters] = useState([]);
+  const [pickedWord, setPickedWord] = useState(""); {/* Palavra selecionada */ }
+  const [pickedCategory, setPickedCategory] = useState(""); {/* Categoria selecionada */ }
+  const [letters, setLetters] = useState([]); {/* Array de letras */ }
 
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
   const [guesses, setGuesses] = useState(3);
   const [score, setScore] = useState(0);
-
   console.log(words);
 
+  {/* Função para retornar a categoria e palavra selecionada para o jogo */ }
   const pickWordAndCategory = useCallback(() => {
-    // pick a random category
     const categories = Object.keys(words);
-    const category =
-      categories[Math.floor(Math.random() * Object.keys(categories).length)];
-
-    // pick a random word
-    const word =
-      words[category][Math.floor(Math.random() * words[category].length)];
-
+    const category = categories[Math.floor(Math.random() * Object.keys(categories).length)];
+    const word = words[category][Math.floor(Math.random() * words[category].length)];
     console.log(category, word);
-
     return { category, word };
   }, [words]);
 
-  // start the game
+  {/* Limpar as letras acertadas e erradas */ }
+  const clearLettersStates = () => {
+    setGuessedLetters([]);
+    setWrongLetters([]);
+  };
+
+  {/* Função para startar jogo pegando categoria e palavra e transformando em minuscula */ }
   const startGame = useCallback(() => {
-    // clear all letters
     clearLettersStates();
-
-    // choose a word
     const { category, word } = pickWordAndCategory();
-
     console.log(category, word);
-
     let wordLetters = word.split("");
-
     wordLetters = wordLetters.map((l) => l.toLowerCase());
-
-    // console.log(category, word);
-
     setPickedCategory(category);
     setPickedWord(word);
     setLetters(wordLetters);
-
     setGameStage(stages[1].name);
   }, [pickWordAndCategory]);
 
-  // process letter input
   const verifyLetter = (letter) => {
     const normalizedLetter = letter.toLowerCase();
-
-    // check if letter has already been utilized
-    if (
-      guessedLetters.includes(normalizedLetter) ||
-      wrongLetters.includes(normalizedLetter)
-    ) {
+    if (guessedLetters.includes(normalizedLetter) || wrongLetters.includes(normalizedLetter)) {
       return;
     }
 
-    // push guessed letter or remove a chance
     if (letters.includes(normalizedLetter)) {
       setGuessedLetters((actualGuessedLetters) => [
         ...actualGuessedLetters,
@@ -100,42 +77,30 @@ function App() {
 
   console.log(wrongLetters);
 
-  // restart the game
+
   const retry = () => {
     setScore(0);
     setGuesses(3);
     setGameStage(stages[0].name);
   };
 
-  // clear letters state
-  const clearLettersStates = () => {
-    setGuessedLetters([]);
-    setWrongLetters([]);
-  };
 
-  // check if guesses ended
   useEffect(() => {
     if (guesses === 0) {
-      // game over and reset all states
+      /* eslint-disable react-hooks/set-state-in-effect */
       clearLettersStates();
-
       setGameStage(stages[2].name);
     }
   }, [guesses]);
 
-  // check win condition
+
   useEffect(() => {
     const uniqueLetters = [...new Set(letters)];
-
     console.log(uniqueLetters);
     console.log(guessedLetters);
 
-    // win condition
-    if (guessedLetters.length === uniqueLetters.length) {
-      // add score
-      setScore((actualScore) => (actualScore += 100));
-
-      // restart game with new word
+    if (letters.length > 0 && guessedLetters.length === uniqueLetters.length) {
+      setScore((prevScore) => prevScore + 100);
       startGame();
     }
   }, [guessedLetters, letters, startGame]);
