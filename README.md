@@ -29,6 +29,11 @@ Esse é um repositorio focado em conceitos **_REACT_** com **_Javascript_**
 
 ---
 
+## Projetos
+- [**Secret Word**](https://secret-word-iota-lilac.vercel.app/)
+
+---
+
 ### Linkedin
 
 [**Linkedin**](https://www.linkedin.com/in/arthur-resende-gomes/)
