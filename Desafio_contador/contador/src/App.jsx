@@ -1,18 +1,20 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Botao from "./components/Botao"
 function App() {
-  const [contador, seContador] = useState(0)
+  const [contador, setContador] = useState(0)
+
+  useEffect(() => {
+    console.log(`O contador mudou para ${contador}`)
+  }, [contador])
 
   const incrementar = () => {
-    seContador(contador + 1)
+    setContador(contador + 1)
   }
   const decrementar = () => {
-    if (contador !== 0) {
-      seContador(contador - 1)
-    }
+    setContador(contador - 1)
   }
   const zerar = () => {
-    seContador(0)
+    setContador(0)
   }
   return (
     <>
@@ -20,8 +22,8 @@ function App() {
       <br /><br /><br />
       <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
         <Botao action={incrementar} texto="Adicionar" color='green' />
-        <Botao action={decrementar} texto="Retirar" color='red' />
-        <Botao action={zerar} texto="Zerar" color='blue' />
+        {contador > 0 && <Botao action={decrementar} texto="Retirar" color='red' />}
+        {contador != 0 && <Botao action={zerar} texto="Zerar" color='blue' />}
       </div>
     </>
   )
