@@ -30,8 +30,7 @@ Esse é um repositorio focado em conceitos **_REACT_** com **_Javascript_**
 ---
 
 ## Projetos
-
-    1 - [**Secret Word**](https://secret-word-iota-lilac.vercel.app/)
+- [**Secret Word**](https://secret-word-iota-lilac.vercel.app/)
 
 ---
 
