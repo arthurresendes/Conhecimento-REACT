@@ -1,70 +1,48 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
+import { useFetch } from "./hooks/useFetch"
 import './App.css'
 
 const url = "http://localhost:3000/products/"
+
 function App() {
-  const [products, setProducts] = useState([])
   const [name, setName] = useState("")
   const [price, setPrice] = useState("")
-
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch(url)
-      const data = await response.json()
-      setProducts(data)
-    }
-    fetchData()
-  }, [])
+  const { data: items, httpConfig } = useFetch(url)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const product = {
-      name,
-      price
-    }
+    const product = { name, price }
 
-    const res = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(product)
-    })
-    const alterList = await res.json()
-    setProducts((prevProducts) => [...prevProducts, alterList])
+    httpConfig(product, "POST")
+
     setName("")
     setPrice("")
   }
 
   const deleteItem = async (id) => {
-    const res = await fetch(`${url}${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(id)
-    })
-    setProducts((prevProducts) => prevProducts.filter(product => product.id != id))
+    httpConfig(id, "DELETE")
   }
 
   return (
     <>
       <h1>Lista de produtos</h1>
       <ul>
-        {products.map((prod) => (
-          <li key={prod.id}>{prod.name} - R$: {prod.price} - <button onClick={() => deleteItem(prod.id)}>Deletar</button></li>
+        {items && items.map((item) => (
+          <li key={item.id}>
+            {item.name} - R$: {item.price} - <button onClick={() => deleteItem(item.id)}>Deletar</button>
+          </li>
         ))}
       </ul>
 
       <div className="add-product">
-        <form action="" onSubmit={handleSubmit}>
-          <label htmlFor="">
+        <form onSubmit={handleSubmit}>
+          <label>
             Nome
-            <input type="text" name="name" id="" value={name} onChange={(e) => setName(e.target.value)} />
+            <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
           </label>
-          <label htmlFor="">
+          <label>
             Preço
-            <input type="number" name="price" id="" value={price} onChange={(e) => setPrice(e.target.value)} />
+            <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} />
           </label>
           <input type="submit" value="Adicionar produto" />
         </form>
