@@ -3,4 +3,6 @@ npm start -> Startar projeto
 
 npm create vite@latest -> Iniciar com vite
 npm install -> Instalar dependencias
-npm run dev -> Rodar
+npm run dev -> Rodar react
+
+npm run server -> Rodar servidor de json
