@@ -31,7 +31,17 @@ function App() {
       body: JSON.stringify(product)
     })
     location.reload()
+  }
 
+  const deleteItem = async (id) => {
+    const res = await fetch(`${url}${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(id)
+    })
+    location.reload()
   }
 
   return (
@@ -39,7 +49,7 @@ function App() {
       <h1>Lista de produtos</h1>
       <ul>
         {products.map((prod) => (
-          <li key={prod.id}>{prod.name} - R$: {prod.price}</li>
+          <li key={prod.id}>{prod.name} - R$: {prod.price} - <button onClick={() => deleteItem(prod.id)}>Deletar</button></li>
         ))}
       </ul>
 
