@@ -30,7 +30,10 @@ function App() {
       },
       body: JSON.stringify(product)
     })
-    location.reload()
+    const alterList = await res.json()
+    setProducts((prevProducts) => [...prevProducts, alterList])
+    setName("")
+    setPrice("")
   }
 
   const deleteItem = async (id) => {
@@ -41,7 +44,7 @@ function App() {
       },
       body: JSON.stringify(id)
     })
-    location.reload()
+    setProducts((prevProducts) => prevProducts.filter(product => product.id != id))
   }
 
   return (
