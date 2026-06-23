@@ -6,6 +6,7 @@ export const useFetch = (url) => {
     const [method, setMethod] = useState(null)
     const [callFetch, setCallFetch] = useState(false)
     const [deleteId, setDeleteId] = useState("")
+    const [updateId, setUpdateId] = useState("")
 
     const httpConfig = (dataOrId, methodType) => {
         if (methodType === "POST") {
@@ -22,6 +23,15 @@ export const useFetch = (url) => {
             })
             setMethod(methodType)
             setDeleteId(dataOrId)
+        } else if (methodType === "PATCH") {
+            const { id, ...bodyData } = dataOrId;
+            setConfig({
+                method: methodType,
+                headers: { "Content-type": "application/json" },
+                body: JSON.stringify(bodyData)
+            })
+            setMethod(methodType)
+            setUpdateId(id)
         }
     }
 
@@ -46,10 +56,15 @@ export const useFetch = (url) => {
                 const res = await fetch(deleteUrl, config)
                 const json = await res.json()
                 setCallFetch(json)
+            } else if (method === "PATCH" && config) {
+                const updateUrl = `${url}${updateId}`
+                const res = await fetch(updateUrl, config)
+                const json = await res.json()
+                setCallFetch(json)
             }
         }
         httpRequest()
-    }, [config, method, url, deleteId])
+    }, [config, method, url, deleteId, updateId])
 
     return { data, httpConfig }
 }

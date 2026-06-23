@@ -2,8 +2,8 @@
   "products": [
     {
       "id": "1",
-      "name": "Camisa",
-      "price": 59.9
+      "name": "Camisa Nike",
+      "price": "69.9"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
