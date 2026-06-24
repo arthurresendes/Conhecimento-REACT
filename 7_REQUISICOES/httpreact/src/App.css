@@ -18,3 +18,29 @@ form input{
   flex-direction: column;
   margin-bottom: 15px;
 }
+
+button, input[type="submit"]{
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 12px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+button:hover, input[type="submit"]:hover{
+  font-size: 15px;
+  transition-duration: .3s;
+}
+
+#blue{
+  background-color: rgb(31, 63, 131);
+  color: white;
+}
+#green{
+  background-color: rgb(17, 70, 17);
+  color: white;
+}
+#red{
+  background-color: rgb(117, 14, 14);
+  color: white;
+}

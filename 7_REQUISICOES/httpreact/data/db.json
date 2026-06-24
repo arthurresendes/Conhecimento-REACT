@@ -4,6 +4,16 @@
       "id": "1",
       "name": "Camisa Nike",
       "price": "69.9"
+    },
+    {
+      "name": "Polo Branca",
+      "price": "29.86",
+      "id": "FTa0JFqQ50I"
+    },
+    {
+      "name": "Shorts Nike preto",
+      "price": "22.99",
+      "id": "8k5-aufrAG4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
