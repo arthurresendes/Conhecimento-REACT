@@ -1,7 +1,7 @@
 import React from 'react'
 
 const About = () => {
-    const items = [{ id: 1, name: 'a' }, { id: 3, name: 'b' }, { id: 3, name: 'c' }]
+    const items = [{ id: 1, name: 'Arthur' }, { id: 3, name: 'Cristiano' }, { id: 3, name: 'Neymar' }]
     return (
         <div>
             <h2>About</h2>
