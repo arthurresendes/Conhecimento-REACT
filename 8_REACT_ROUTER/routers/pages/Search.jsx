@@ -4,7 +4,7 @@ import { useFetch } from "../hooks/useFetch"
 const Search = () => {
     const [searchParams] = useSearchParams()
     const query = searchParams.get("q") || ""
-    const url = `http://localhost:3000/products?q=${query}`
+    const url = `http://localhost:3000/products?name=${encodeURIComponent(query)}`
     const { data: items } = useFetch(url)
     return (
         <div>
