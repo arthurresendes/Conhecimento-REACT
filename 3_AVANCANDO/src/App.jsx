@@ -7,10 +7,12 @@ import ShowUserName from './components/ShowUserName'
 import CarDetails from './components/CarDetails'
 import Container from './components/Container'
 import ExecuteFunction from './components/ExecuteFunction'
+import NotFound from './components/NotFound'
 import { useState } from 'react'
 import Message from './components/Message'
 import ChangeMessagState from './components/ChangeMessagState'
 import UserDetails from './components/UserDetails'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
   const [indice, setIndice] = useState(1)
@@ -47,7 +49,7 @@ function App() {
     console.log("Minha função")
   }
 
-  const [message, setMessage] = useState("")
+  const [message, setMessage] = useState("Olá mundo")
 
   const handleMessageIntern = (msg) => {
     setMessage(msg)
@@ -66,25 +68,30 @@ function App() {
         <img src={Invencible} alt="" />
       </div>
       */}
-      <ManageData />
-      <ListRender />
-      <ConditionalRandom />
-      <ShowUserName name="Arthur" />{/*Pode passar tanto constantes sem e com useState como parametros nesse caso tambem*/}
-      <CarDetails brand="VW" km={0} color="azul" novo={true} />
-      <CarDetails brand="VW" km={10000} color="azul" novo={false} />
-      <CarDetails brand="VW" km={0} color="vermelho" novo={true} />
       {cars.map((car) => (
         <CarDetails key={car.id} brand={car.brand} km={car.km} color={car.color} novo={car.novo} />
       ))}
       <Container myValue="teste">
         <p>Componente filho</p>
       </Container>
-      <ExecuteFunction myFunction={showMessage} />
-      <Message msg={message} />
       <ChangeMessagState handleMessage={handleMessageIntern} />
       {persons.map((person) => (
         <UserDetails key={person.id} name={person.name} age={person.age} work={person.work} />
       ))}
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<ManageData />} />
+          <Route path='/listRender' element={<ListRender />} />
+          <Route path='/executeFunction' element={<ExecuteFunction myFunction={showMessage} />} />
+          <Route path='/message' element={<Message msg={message} />} />
+          <Route path='/conditional-random' element={<ConditionalRandom />} />
+          <Route path='/' element={<ShowUserName name="Arthur" />} />{/*Pode passar tanto constantes sem e com useState como parametros nesse caso tambem*/}
+          <Route path='/car-detail' element={<CarDetails brand="VW" km={0} color="azul" novo={true} />} />
+          <Route path='/car-detail' element={< CarDetails brand="VW" km={10000} color="azul" novo={false} />} />
+          <Route path='/car-detail' element={<CarDetails brand="VW" km={0} color="vermelho" novo={true} />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
